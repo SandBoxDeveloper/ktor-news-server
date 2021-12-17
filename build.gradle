@@ -8,8 +8,15 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'application'
+//apply plugin: 'kotlin'
+//apply plugin: 'application'
+//apply plugin: 'kotlinx-serialization'
+
+plugins {
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version "${kotlin_version}"
+    id 'org.jetbrains.kotlin.plugin.serialization' version "${kotlin_version}"
+}
 
 group 'com.andre'
 version '0.0.1'
@@ -26,6 +33,10 @@ repositories {
     mavenLocal()
     jcenter()
     maven { url 'https://kotlin.bintray.com/ktor' }
+}
+
+tasks.create("stage") {
+    dependsOn("installDist")
 }
 
 dependencies {

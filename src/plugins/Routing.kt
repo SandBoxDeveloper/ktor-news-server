@@ -16,7 +16,6 @@ fun Application.configureRouting() {
             call.respondText("Headers Attached")
         }
 
-        // Static feature. Try to access `/static/ktor_logo.svg`
         static {
             resources("static")
         }
